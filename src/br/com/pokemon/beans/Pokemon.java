@@ -28,6 +28,10 @@ public class Pokemon {
         Shiny = shiny;
     }
 
+    public ArrayList<Ataque> getAtaques() {
+        return ataques;
+    }
+
     public int getVidaAtual() {
         return vidaAtual;
     }
@@ -50,5 +54,9 @@ public class Pokemon {
 
     public int getId() {
         return id;
+    }
+
+    public void perdeHP(int dano){
+        this.vidaAtual -= dano;
     }
 }
