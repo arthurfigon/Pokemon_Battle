@@ -5,6 +5,7 @@ public class Ataque {
     int id;
     String nome;
     int dano;
+    boolean critico = false;
 
     public Ataque(int id, String nome, int dano) {
         this.id = id;
@@ -18,5 +19,13 @@ public class Ataque {
 
     public int getDano() {
         return dano;
+    }
+
+    public boolean isCritico() {
+        return critico;
+    }
+
+    public void setCritico(boolean critico) {
+        this.critico = critico;
     }
 }

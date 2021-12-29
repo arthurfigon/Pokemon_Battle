@@ -59,4 +59,8 @@ public class Pokemon {
     public void perdeHP(int dano){
         this.vidaAtual -= dano;
     }
+
+    public void curaPokemon(){
+        setVidaAtual(getVidaTotal());
+    }
 }
