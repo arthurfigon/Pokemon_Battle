@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
-        // Cria um ataque Ember
 
         // Tipo Fogo para Pokemons
         Tipo fogo = new Tipo();
@@ -19,7 +18,7 @@ public class Main {
         Ataque bubble = new Ataque(02,"Bubble", 10, agua);
         // Cria um ataque Ember
         Ataque ember = new Ataque(01,"Ember", 10, fogo);
-        // Cria um ataque Tackel
+        // Cria um ataque Tackle
         Ataque tackle = new Ataque(03,"Tackle", 5, normal);
 
 
@@ -33,13 +32,9 @@ public class Main {
 
         // Adiciona os parametros pro treinador assim como o pokemon inicial
         Treinador arthur = new Treinador("arthur",25, "Masculino", charmanderInicial);
-
-
+        
         // Adiciona um pokemon adicional para o treinador
         arthur.addPokemon(rattata);
-
-        // Comando para escolher qual pokemon vai batalhar pelo treinador...
-        // arthur.pickPokemon();
 
         // Criar uma batalha entre o trainer e um pokemon
         Batalha batalhaInicial = new Batalha(arthur.pickPokemon(),squirtleInicial);
