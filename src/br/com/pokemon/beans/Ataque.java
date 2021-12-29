@@ -5,12 +5,14 @@ public class Ataque {
     int id;
     String nome;
     int dano;
+    Tipo tipo;
     boolean critico = false;
 
-    public Ataque(int id, String nome, int dano) {
+    public Ataque(int id, String nome, int dano, Tipo tipo) {
         this.id = id;
         this.nome = nome;
         this.dano = dano;
+        this.tipo = tipo;
     }
 
     public String getNome() {

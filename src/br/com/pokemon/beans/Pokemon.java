@@ -16,13 +16,26 @@ public class Pokemon {
     public Pokemon() {
     }
 
-    public Pokemon(int id, String nome, int vidaAtual, int vidaTotal, ArrayList<Tipo> tipos, ArrayList<Ataque> ataques, int nivel, String genero, Boolean shiny) {
+    public Pokemon(int id, String nome, int vidaAtual, int vidaTotal, Tipo tipoUm, Ataque ataque, int nivel, String genero, Boolean shiny) {
         this.id = id;
         this.nome = nome;
         this.vidaAtual = vidaAtual;
         this.vidaTotal = vidaTotal;
-        this.tipos = tipos;
-        this.ataques = ataques;
+        this.tipos.add(tipoUm);
+        this.ataques.add(ataque);
+        this.nivel = nivel;
+        this.genero = genero;
+        Shiny = shiny;
+    }
+
+    public Pokemon(int id, String nome, int vidaAtual, int vidaTotal, Tipo tipoUm, Tipo tipoDois, Ataque ataque, int nivel, String genero, Boolean shiny) {
+        this.id = id;
+        this.nome = nome;
+        this.vidaAtual = vidaAtual;
+        this.vidaTotal = vidaTotal;
+        this.tipos.add(tipoUm);
+        this.tipos.add(tipoDois);
+        this.ataques.add(ataque);
         this.nivel = nivel;
         this.genero = genero;
         Shiny = shiny;
