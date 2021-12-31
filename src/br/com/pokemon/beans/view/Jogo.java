@@ -315,20 +315,150 @@ public class Jogo {
     }
 
     private void inicializaPokemons(){
-        Pokemon charmander = new Pokemon(04,"Charmander",25,25,
-                findTipoByName("Fogo"), findAtaqueByName("Ember"),05,"Masculino",false);
-        Pokemon squirtle = new Pokemon(07,"Squirtle",25,25,
-                findTipoByName("Agua"), findAtaqueByName("Bubble"),05,"Feminino",false);
-        Pokemon bulbasaur = new Pokemon(01, "Bulbasaur", 25, 25,
-                findTipoByName("Planta"), findAtaqueByName("Razor Blade"), 05, "Feminino", false);
-        Pokemon rattata = new Pokemon(19,"Rattata",12,12, findTipoByName("Normal"),
-                findAtaqueByName("Tackle"),03,"Masculino",false);
-        Pokemon pidgey = new Pokemon(16, "Pidgey", 12, 12, findTipoByName("Voador"),
-                findAtaqueByName("Peck"), 03, "Masculino", false);
-        pokemons.add(charmander);
-        pokemons.add(squirtle);
-        pokemons.add(bulbasaur);
-        pokemons.add(rattata);
-        pokemons.add(pidgey);
+        Pokemon bulbasaur = new Pokemon(1, "Bulbasaur", 50, 50,
+                findTipoByName("Planta"), findAtaqueByName("Razor Blade"), 5,
+                "Femea", false);
+        Pokemon ivysaur = new Pokemon(2, "Ivysaur", 160, 160,
+                findTipoByName("Planta"), findAtaqueByName("Razor Blade"), 16,
+                "Macho", false);
+        Pokemon venusaur = new Pokemon(3, "Venusaur", 320, 320,
+                findTipoByName("Planta"), findAtaqueByName("Razor Blade"), 32,
+                "Macho", false);
+        Pokemon charmander = new Pokemon(4,"Charmander",50,50,
+                findTipoByName("Fogo"), findAtaqueByName("Ember"),5,
+                "Macho",false);
+        Pokemon charmeleon = new Pokemon(5,"Charmeleon",160,160,
+                findTipoByName("Fogo"), findAtaqueByName("Ember"),16,
+                "Femea",false);
+        Pokemon charizard = new Pokemon(6,"Charizard",320,320,
+                findTipoByName("Fogo"), findAtaqueByName("Ember"),32,
+                "Macho",false);
+        Pokemon squirtle = new Pokemon(7,"Squirtle",50,50,
+                findTipoByName("Agua"), findAtaqueByName("Bubble"),5,
+                "Macho",false);
+        Pokemon wartortle = new Pokemon(8,"Wartortle",160,160,
+                findTipoByName("Agua"), findAtaqueByName("Bubble"),16,
+                "Macho",false);
+        Pokemon blastoise = new Pokemon(9,"Blastoise",360,360,
+                findTipoByName("Agua"), findAtaqueByName("Bubble"),36,
+                "Macho",false);
+        Pokemon caterpie = new Pokemon(10,"Caterpie",60,60,
+                findTipoByName("Inseto"), findAtaqueByName("Tackle"),6,
+                "Macho",false);
+        Pokemon metapod = new Pokemon(11,"Metapod",70,70,
+                findTipoByName("Inseto"), findAtaqueByName("Tackle"),7,
+                "Femea",false);
+        Pokemon butterfree = new Pokemon(12,"Butterfree",100,100,
+                findTipoByName("Inseto"), findAtaqueByName("Tackle"),10,
+                "Femea",false);
+        Pokemon weedle = new Pokemon(13,"Weedle",60,60,
+                findTipoByName("Inseto"), findAtaqueByName("Tackle"),6,
+                "Macho",false);
+        Pokemon kakuna = new Pokemon(14,"Weedle",70,70,
+                findTipoByName("Inseto"), findAtaqueByName("Tackle"),7,
+                "Macho",false);
+        Pokemon beedrill = new Pokemon(15,"Weedle",100,100,
+                findTipoByName("Inseto"), findAtaqueByName("Tackle"),10,
+                "Macho",false);
+        Pokemon pidgey = new Pokemon(16, "Pidgey", 30, 30, findTipoByName("Voador"),
+                findAtaqueByName("Peck"), 3, "Femea", false);
+        Pokemon pidgeotto = new Pokemon(17, "Pidgeotto", 180, 180, findTipoByName("Voador"),
+                findAtaqueByName("Peck"), 18, "Femea", false);
+        Pokemon pidgeot = new Pokemon(18, "Pidgeot", 360, 360, findTipoByName("Voador"),
+                findAtaqueByName("Peck"), 36, "Macho", false);
+        Pokemon rattata = new Pokemon(19,"Rattata",30,30, findTipoByName("Normal"),
+                findAtaqueByName("Tackle"),3,"Macho",false);
+        Pokemon raticate = new Pokemon(20,"Raticate",200,200, findTipoByName("Normal"),
+                findAtaqueByName("Tackle"),20,"Femea",false);
+        Pokemon spearow = new Pokemon(21,"Spearow",60,60, findTipoByName("Normal"), findTipoByName("Voador"),
+                findAtaqueByName("Tackle"),6,"Macho",false);
+        Pokemon fearow = new Pokemon(22,"Fearow",210,210, findTipoByName("Normal"), findTipoByName("Voador"),
+                findAtaqueByName("Tackle"),21,"Macho",false);
+        Pokemon ekans = new Pokemon(23,"Ekans",120,120, findTipoByName("Veneno"),
+                findAtaqueByName("Tackle"),12,"Femea",false);
+        Pokemon arbok = new Pokemon(24,"Arbok",220,220, findTipoByName("Veneno"),
+                findAtaqueByName("Tackle"),22,"Macho",false);
+        Pokemon pikachu = new Pokemon(25,"Pikachu",80,80, findTipoByName("Eletrico"),
+                findAtaqueByName("Tackle"),8,"Femea",false);
+
+
+
+
+        Pokemon nidorina= new Pokemon(30,"Nidorina",160,160, findTipoByName("Veneno"),
+                findAtaqueByName("Tackle"),16,"Masculino",false);
+        Pokemon nidoqueen= new Pokemon(31,"Nidoqueen",320,320, findTipoByName("Veneno"),
+                findTipoByName("Terra"), findAtaqueByName("Tackle"),32,"Feminino",false);
+        Pokemon nidoranM= new Pokemon(32,"Nidoran ♂", 60, 60, findTipoByName("Veneno"),
+                findAtaqueByName("Tackle"),6,"Masculino",false);
+        Pokemon nidorino= new Pokemon(33,"Nidorino",160 ,160 , findTipoByName("Veneno"),
+                findAtaqueByName("Tackle"),16,"Masculino",false);
+        Pokemon nidoking= new Pokemon(34,"Nidoking", 320, 320 , findTipoByName("Veneno"),
+                findTipoByName("Terra"),findAtaqueByName("Tackle"),32,"Masculino",false);
+
+
+
+
+
+
+
+
+
+
+
+
+
+        Pokemon moltres = new Pokemon(146,"Moltres", 500, 500, findTipoByName("Fogo"),
+                findTipoByName("Voador"), findAtaqueByName("Ember"), 50, "Desconhecido",false);
+        Pokemon dratini = new Pokemon(147,"Dratini", 60, 60, findTipoByName("Dragao"),
+                findAtaqueByName("Tackle"), 6, "Macho",false);
+        Pokemon dragonair = new Pokemon(148,"Dragonair", 300, 300, findTipoByName("Dragao"),
+                findAtaqueByName("Tackle"), 30, "Macho",false);
+        Pokemon dragonite = new Pokemon(149,"Draqgonite", 550, 550, findTipoByName("Dragao"),
+                findTipoByName("Voador"), findAtaqueByName("Tackle"), 55, "Macho",false);
+        Pokemon mewtwo = new Pokemon(150,"Mewtwo", 500, 500, findTipoByName("Psiquico"),
+                findAtaqueByName("Tackle"), 50, "Desconhecido",false);
+        Pokemon mew = new Pokemon(151,"Mew", 500, 500, findTipoByName("Psiquico"),
+                findAtaqueByName("Tackle"), 50, "Desconhecido",false);
+
+        pokemons.add(bulbasaur); // 001
+        pokemons.add(ivysaur); // 002
+        pokemons.add(venusaur); // 003
+        pokemons.add(charmander); // 004
+        pokemons.add(charmeleon); // 005
+        pokemons.add(charizard); // 006
+        pokemons.add(squirtle); // 007
+        pokemons.add(wartortle); // 008
+        pokemons.add(blastoise); // 009
+        pokemons.add(caterpie); // 010
+        pokemons.add(metapod); // 011
+        pokemons.add(butterfree); // 012
+        pokemons.add(weedle); // 013
+        pokemons.add(kakuna); // 014
+        pokemons.add(beedrill); // 015
+        pokemons.add(pidgey); // 016
+        pokemons.add(pidgeotto); // 017
+        pokemons.add(pidgeot); // 018
+        pokemons.add(rattata); // 019
+        pokemons.add(raticate); // 020
+        pokemons.add(spearow); // 021
+        pokemons.add(fearow); // 022
+        pokemons.add(ekans); // 023
+        pokemons.add(arbok); // 024
+
+
+
+        pokemons.add(nidorina);//030
+        pokemons.add(nidoqueen);//031
+        pokemons.add(nidoranM);//032
+        pokemons.add(nidorino);//033
+        pokemons.add(nidoking);//034
+
+
+        pokemons.add(moltres);//146
+        pokemons.add(dratini);//147
+        pokemons.add(dragonair);//148
+        pokemons.add(dragonite);//149
+        pokemons.add(mewtwo);//150
+        pokemons.add(mew);//151
     }
 }
