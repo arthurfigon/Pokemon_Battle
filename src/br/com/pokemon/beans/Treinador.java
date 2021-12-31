@@ -15,6 +15,10 @@ public class Treinador {
     ArrayList<Pokemon> time = new ArrayList<Pokemon>();
     String genero;
 
+    public ArrayList<Pokemon> getTime() {
+        return time;
+    }
+
     public Treinador(String nome, int idade, String genero, Pokemon pokemon) {
         this.nome = nome;
         this.idade = idade;
@@ -36,6 +40,7 @@ public class Treinador {
         }
         return null;
     }
+
 
     public Pokemon pickPokemon(){
         util.Utils utils = new Utils();
@@ -84,12 +89,23 @@ public class Treinador {
         return ids;
     }
 
+    public Pokemon getFirstPokemon(){
+        return time.get(0);
+    }
+
     private void printaPokemons(){
+        Utils ajuda = new Utils();
         ArrayList<Pokemon> listaOrdenadaPokemons = this.time;
         listaOrdenadaPokemons = this.sortPokemonListById(listaOrdenadaPokemons);
         for (Pokemon pokemon : listaOrdenadaPokemons){
-            System.out.println(pokemon.getId()+" - "+pokemon.getNome()+ ": "+pokemon.getVidaAtual()+"/"+pokemon.getVidaTotal());
+            ajuda.balaoDebatalha(pokemon.getId()+" - "+pokemon.getNome()+ ": "+pokemon.getVidaAtual()+"/"+pokemon.getVidaTotal());
         }
+    }
+
+    public static void printaPokemon(Pokemon pokemon){
+        Utils ajuda = new Utils();
+        ajuda.balaoDebatalha(pokemon.getId()+" - "+pokemon.getNome()+ ": "
+                +pokemon.getVidaAtual()+"/"+pokemon.getVidaTotal());
     }
 
     private boolean checkPokemonIsIn(int[] vetorDeIds, int id){

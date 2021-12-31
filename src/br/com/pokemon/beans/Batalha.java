@@ -20,7 +20,7 @@ public class Batalha {
                 balaoDebatalha("Dano: " + danoCausado);
                 this.pokemons[1].perdeHP(danoCausado);
                 try { Thread.sleep(2500);
-                    System.out.println("\n\n\n\n");
+                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
                 } catch (InterruptedException ex) {}
             }
             if (this.pokemons[1].getVidaAtual() > 0) {
@@ -29,7 +29,7 @@ public class Batalha {
                 balaoDebatalha("Dano: " + danoCausado);
                 this.pokemons[0].perdeHP(danoCausado);
                 try { Thread.sleep(2500);
-                    System.out.println("\n\n\n\n");
+                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
                 } catch (InterruptedException ex) {}
             }
             statusLuta();
@@ -40,7 +40,7 @@ public class Batalha {
                 balaoDebatalha("O pokemon inimigo está fora de combate!");
             }
             try { Thread.sleep(2000);
-                System.out.println("\n\n\n");
+                System.out.println("\n\n\n\n\n\n\n\n\n\n\n");
             } catch (InterruptedException ex) {}
         }
     }
@@ -65,6 +65,7 @@ public class Batalha {
         if(pokemons[1].getVidaAtual() < 0){
             pokemons[1].setVidaAtual(0);
         }
+        balaoDebatalha("Status da luta:");
         balaoDebatalha(pokemons[0].getNome()+": "+pokemons[0].getVidaAtual()+"/"+pokemons[0].getVidaTotal());
         balaoDebatalha(pokemons[1].getNome()+": "+pokemons[1].getVidaAtual()+"/"+pokemons[1].getVidaTotal());
     }
