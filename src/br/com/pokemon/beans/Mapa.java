@@ -102,4 +102,20 @@ public class Mapa {
         }
         return false;
     }
+
+    public boolean isCidade(){
+        if(mapaOriginal[localizacaoLinha][localizacaoColuna].equals("C")){
+            return true;
+        } else{
+            return false;
+        }
+    }
+
+    public int getLocalizacaoLinha() {
+        return localizacaoLinha;
+    }
+
+    public int getLocalizacaoColuna() {
+        return localizacaoColuna;
+    }
 }

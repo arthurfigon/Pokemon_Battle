@@ -184,4 +184,10 @@ public class Utils {
         return vetor;
     }
 
+    public void balaoDebatalha(String texto){
+        System.out.println("════════════════════════════════════════════════════════");
+        System.out.println(""+texto);
+        System.out.println("════════════════════════════════════════════════════════");
+    }
+
 }

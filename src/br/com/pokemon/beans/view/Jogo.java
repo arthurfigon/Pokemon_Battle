@@ -33,26 +33,66 @@ public class Jogo {
                         findPokemonByName("Charmander"), findPokemonByName("Squirtle")));
 
         // Criar uma batalha entre o trainer e um pokemon
-        firstBattle();
+//        firstBattle();
 
-        //Usa Centro Pokémon
-        centroPokemon(treinador.getTime());
 
         while(gameOn) {
-            //Inicia Novo Combate
-            Pokemon combatente = pickWildPokemon(findPokemonByName("Pidgey"),findPokemonByName("Rattata"));
+            if(mapaKanto.isCidade()){
+                createCityMenu();
+            }else{
+                createWildMenu();
+            }
+        }
+    }
+
+    private void createWildMenu(){
+        Utils ajuda = new Utils();
+        ajuda.balaoDebatalha("1 - Procurar pokemon selvagem");
+        ajuda.balaoDebatalha("2 - Usar Item(ainda será implementado)");
+        ajuda.balaoDebatalha("3 - Andar");
+        ajuda.balaoDebatalha("4 - Sair do Jogo");
+        switch (ajuda.LerInt("Digite a opção desejada: ")){
+            case 1 -> pickMapBattle(mapaKanto.getLocalizacaoLinha(),mapaKanto.getLocalizacaoColuna());
+            case 2 -> pickMapBattle(mapaKanto.getLocalizacaoLinha(),mapaKanto.getLocalizacaoColuna());
+            case 3 ->{
+                mapaKanto.showMapa();
+                mapaKanto.andaMapa(ajuda.LerString("Use W A S D para mover-se: "));
+            }
+            case 4 -> gameOn = false;
+            default -> pickMapBattle(1,1);
+        }
+    }
+
+    private void createCityMenu(){
+        Utils ajuda = new Utils();
+        ajuda.balaoDebatalha("1 - Ir ao centro Pokemon");
+        ajuda.balaoDebatalha("2 - Ir ao PokeMart(ainda será implementado)");
+        ajuda.balaoDebatalha("3 - Andar");
+        ajuda.balaoDebatalha("4 - Sair do Jogo");
+        switch (ajuda.LerInt("Digite a opção desejada: ")){
+            case 1 -> centroPokemon(treinador.getTime());
+            case 2 -> centroPokemon(treinador.getTime());
+            case 3 ->{
+                mapaKanto.showMapa();
+                mapaKanto.andaMapa(ajuda.LerString("Use W A S D para mover-se: "));
+            }
+            case 4 -> gameOn = false;
+            default -> centroPokemon(treinador.getTime());
+        }
+    }
+
+    private void pickMapBattle(int mapX, int mapY){
+        Pokemon combatente;
+        if((mapX == 10 || mapX == 9) && mapY == 3){
+            combatente = pickWildPokemon(findPokemonByName("Pidgey"),findPokemonByName("Rattata"));
             Batalha batalhaUm = new Batalha(treinador.pickPokemon(), combatente);
             batalhaUm.startBattle();
             curaPokemon(combatente);
-
-            //Inicia Novo Combate
-            combatente = pickWildPokemon(findPokemonByName("Pidgey"),findPokemonByName("Rattata"));
-            Batalha batalhaDois = new Batalha(treinador.pickPokemon(), combatente);
-            batalhaDois.startBattle();
-            curaPokemon(combatente);
-            mapaKanto.showMapa();
-            mapaKanto.andaMapa(ajuda.LerString("Use W A S D para mover-se: "));
         }
+        //combatente = pickWildPokemon(findPokemonByName("Pidgey"),findPokemonByName("Rattata"));
+        //Batalha batalhaUm = new Batalha(treinador.pickPokemon(), combatente);
+        //batalhaUm.startBattle();
+        //curaPokemon(combatente);
     }
 
     private Tipo findTipoByName(String nome){
@@ -281,7 +321,7 @@ public class Jogo {
                 findTipoByName("Agua"), findAtaqueByName("Bubble"),05,"Feminino",false);
         Pokemon bulbasaur = new Pokemon(01, "Bulbasaur", 25, 25,
                 findTipoByName("Planta"), findAtaqueByName("Razor Blade"), 05, "Feminino", false);
-        Pokemon rattata = new Pokemon(19,"Ratatta",12,12, findTipoByName("Normal"),
+        Pokemon rattata = new Pokemon(19,"Rattata",12,12, findTipoByName("Normal"),
                 findAtaqueByName("Tackle"),03,"Masculino",false);
         Pokemon pidgey = new Pokemon(16, "Pidgey", 12, 12, findTipoByName("Voador"),
                 findAtaqueByName("Peck"), 03, "Masculino", false);
