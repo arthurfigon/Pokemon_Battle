@@ -12,36 +12,95 @@ public class Batalha {
     }
 
     public void startBattle() {
-        int danoCausado= 0;
+        System.out.println("\n\n\n");
+        balaoDebatalha("Seu pokemon: "+pokemons[0].getNome()+": "+pokemons[0].getVidaAtual()+
+                "/"+pokemons[0].getVidaTotal());
+        balaoDebatalha("Oponente: "+pokemons[1].getNome()+": "+pokemons[1].getVidaAtual()+
+                "/"+pokemons[1].getVidaTotal());
+        System.out.print("\n");
+        try { Thread.sleep(4500);
+            System.out.println("\n\n\n\n\n");
+        } catch (InterruptedException ignored) {}
         while(this.pokemons[0].getVidaAtual() > 0 && this.pokemons[1].getVidaAtual() > 0) {
-            if (this.pokemons[0].getVidaAtual() > 0) {
-                balaoDebatalha(this.pokemons[0].getNome() + " usou: " + this.pokemons[0].getAtaques().get(0).getNome());
-                danoCausado = rollDano(this.pokemons[0].getAtaques().get(0));
-                balaoDebatalha("Dano: " + danoCausado);
-                this.pokemons[1].perdeHP(danoCausado);
-                try { Thread.sleep(2500);
-                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-                } catch (InterruptedException ex) {}
+            mostrarBatalha();
+        }
+    }
+
+    private void ataquePlayer(int indexAtaque){
+        int danoCausado;
+        if (this.pokemons[0].getVidaAtual() > 0) {
+            danoCausado = rollDano(this.pokemons[1].getAtaques().get(indexAtaque));
+            this.pokemons[1].perdeHP(danoCausado);
+            if(pokemons[1].getVidaAtual() < 0){ pokemons[1].setVidaAtual(0);}
+            System.out.println("╔════════════════════════════════════════════════════════════╗");
+            System.out.println("║ "+pokemons[1].getNome()+": "+pokemons[1].getVidaAtual()+"/"+pokemons[1].getVidaTotal() + " HP");
+            System.out.println("║ ╔═════════════════════════════════════════════════════╗");
+            System.out.println("║ ║ - "+danoCausado+" HP");
+            System.out.println("║ ╚═════════════════════════════════════════════════════╝");
+            System.out.println("║");
+            System.out.println("║");
+            System.out.println("║");
+            System.out.println("║ "+pokemons[0].getNome()+": "+pokemons[0].getVidaAtual()+"/"+pokemons[0].getVidaTotal());
+            System.out.println("║ ╔═════════════════════════════════════════════════════╗");
+            if(danoCausado > this.pokemons[0].getAtaques().get(0).getDano()){
+                System.out.println("║ ║ Usou: "+this.pokemons[0].getAtaques().get(indexAtaque).getNome()+"! (Ataque Crítico)");
             }
-            if (this.pokemons[1].getVidaAtual() > 0) {
-                balaoDebatalha(this.pokemons[1].getNome() + " usou: " + this.pokemons[1].getAtaques().get(0).getNome());
-                danoCausado = rollDano(this.pokemons[1].getAtaques().get(0));
-                balaoDebatalha("Dano: " + danoCausado);
-                this.pokemons[0].perdeHP(danoCausado);
-                try { Thread.sleep(2500);
-                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-                } catch (InterruptedException ex) {}
+            else{
+                System.out.println("║ ║ Usou: "+this.pokemons[0].getAtaques().get(indexAtaque).getNome()+"!");
             }
-            statusLuta();
-            if (this.pokemons[0].getVidaAtual() <= 0) {
-                balaoDebatalha("Seu pokémon ficou fora de combate...");
+            System.out.println("║ ╚═════════════════════════════════════════════════════╝");
+            System.out.println("╚════════════════════════════════════════════════════════════╝");
+            try { Thread.sleep(4500);
+                System.out.println("\n\n\n\n\n");
+            } catch (InterruptedException ignored) {}
+        }
+    }
+
+    private void ataqueOponente(int indexAtaque){
+        int danoCausado;
+        if (this.pokemons[1].getVidaAtual() > 0) {
+            danoCausado = rollDano(this.pokemons[1].getAtaques().get(indexAtaque));
+            this.pokemons[0].perdeHP(danoCausado);
+            if(pokemons[0].getVidaAtual() < 0){ pokemons[0].setVidaAtual(0);}
+            System.out.println("╔════════════════════════════════════════════════════════════╗");
+            System.out.println("║ "+pokemons[1].getNome()+": "+pokemons[1].getVidaAtual()+"/"+pokemons[1].getVidaTotal() + " HP");
+            System.out.println("║ ╔═════════════════════════════════════════════════════╗");
+            if(danoCausado > this.pokemons[1].getAtaques().get(0).getDano()){
+                System.out.println("║ ║ Usou: "+this.pokemons[1].getAtaques().get(indexAtaque).getNome()+"! (Ataque Crítico)");
             }
-            if (this.pokemons[1].getVidaAtual() <= 0) {
-                balaoDebatalha("O pokemon inimigo está fora de combate!");
+            else{
+                System.out.println("║ ║ Usou: "+this.pokemons[1].getAtaques().get(indexAtaque).getNome()+"!");
             }
-            try { Thread.sleep(2000);
+            System.out.println("║ ╚═════════════════════════════════════════════════════╝");
+            System.out.println("║");
+            System.out.println("║");
+            System.out.println("║");
+            System.out.println("║ "+pokemons[0].getNome()+": "+pokemons[0].getVidaAtual()+"/"+pokemons[0].getVidaTotal());
+            System.out.println("║ ╔═════════════════════════════════════════════════════╗");
+            System.out.println("║ ║ - "+danoCausado+" HP");
+            System.out.println("║ ╚═════════════════════════════════════════════════════╝");
+            System.out.println("╚════════════════════════════════════════════════════════════╝");
+            try { Thread.sleep(4500);
+                System.out.println("\n\n\n\n\n");
+            } catch (InterruptedException ignored) {}
+        }
+    }
+
+    private void mostrarBatalha(){
+        ataquePlayer(0);
+        ataqueOponente(0);
+
+        if (this.pokemons[0].getVidaAtual() <= 0) {
+            balaoDebatalha("Seu pokémon ficou fora de combate...");
+            try { Thread.sleep(3000);
                 System.out.println("\n\n\n\n\n\n\n\n\n\n\n");
-            } catch (InterruptedException ex) {}
+            } catch (InterruptedException ignored) {}
+        }
+        if (this.pokemons[1].getVidaAtual() <= 0) {
+            balaoDebatalha("O pokemon inimigo está fora de combate!");
+            try { Thread.sleep(3000);
+                System.out.println("\n\n\n\n\n\n\n\n\n\n\n");
+            } catch (InterruptedException ignored) {}
         }
     }
 
@@ -50,7 +109,6 @@ public class Batalha {
         Random critico = new Random();
         if(critico.nextInt(20)+1 >= 18){
             ataque.setCritico(true);
-            balaoDebatalha("Golpe Crítico!");
             return (dano.nextInt(ataque.getDano())+1)*2;
         }else{
             ataque.setCritico(false);
@@ -59,12 +117,6 @@ public class Batalha {
     }
 
     private void statusLuta(){
-        if(pokemons[0].getVidaAtual() < 0){
-            pokemons[0].setVidaAtual(0);
-        }
-        if(pokemons[1].getVidaAtual() < 0){
-            pokemons[1].setVidaAtual(0);
-        }
         balaoDebatalha("Status da luta:");
         balaoDebatalha(pokemons[0].getNome()+": "+pokemons[0].getVidaAtual()+"/"+pokemons[0].getVidaTotal());
         balaoDebatalha(pokemons[1].getNome()+": "+pokemons[1].getVidaAtual()+"/"+pokemons[1].getVidaTotal());

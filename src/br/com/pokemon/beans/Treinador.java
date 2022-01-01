@@ -45,6 +45,9 @@ public class Treinador {
     public Pokemon pickPokemon(){
         util.Utils utils = new Utils();
         int[] ids = this.getIdsPokemons();
+        System.out.println("\n\n\n\n\n\n");
+        utils.balaoDebatalha("Pokémons:");
+        System.out.println("\n");
         printaPokemons();
         int opcao = utils.LerInt("Escolha seu pokémon pelo id: ");
         while(!checkPokemonIsIn(ids, opcao)){

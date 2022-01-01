@@ -16,7 +16,6 @@ public class Jogo {
 
 
     public Jogo() {
-        Utils ajuda = new Utils();
         // Cria tipos e adiciona em this.tipos para tipos
         inicializaTipos();
 
@@ -28,12 +27,12 @@ public class Jogo {
 
 
         // Começa o MODO HISTÓRIA
-        this.treinador = new Treinador(dialogoComeçoJogo(),25, "Masculino",
+        this.treinador = new Treinador(dialogoComecoJogo(),25, "Masculino",
                 pickInitial(findPokemonByName("Bulbasaur"),
                         findPokemonByName("Charmander"), findPokemonByName("Squirtle")));
 
         // Criar uma batalha entre o trainer e um pokemon
-//        firstBattle();
+        firstBattle();
 
 
         while(gameOn) {
@@ -74,7 +73,7 @@ public class Jogo {
             case 2 -> centroPokemon(treinador.getTime());
             case 3 ->{
                 mapaKanto.showMapa();
-                mapaKanto.andaMapa(ajuda.LerString("Use W A S D para mover-se: "));
+                mapaKanto.andaMapa(ajuda.LerString("Informe w(↑) a(←) s(↓) d(→) para mover-se: "));
             }
             case 4 -> gameOn = false;
             default -> centroPokemon(treinador.getTime());
@@ -89,10 +88,6 @@ public class Jogo {
             batalhaUm.startBattle();
             curaPokemon(combatente);
         }
-        //combatente = pickWildPokemon(findPokemonByName("Pidgey"),findPokemonByName("Rattata"));
-        //Batalha batalhaUm = new Batalha(treinador.pickPokemon(), combatente);
-        //batalhaUm.startBattle();
-        //curaPokemon(combatente);
     }
 
     private Tipo findTipoByName(String nome){
@@ -117,14 +112,13 @@ public class Jogo {
         Pokemon bulbasaurInicial = getPokemonById(pokemons,1);
         Pokemon charmanderInicial = getPokemonById(pokemons,4);
         Pokemon squirtleInicial = getPokemonById(pokemons,7);
-        Utils ajuda = new Utils();
 
         balaoDebatalha("Seu rival escolheu outro pokemon...");
-        try { Thread.sleep(2000);}catch (InterruptedException ex) {}
+        try { Thread.sleep(2000);}catch (InterruptedException ignored) {}
         balaoDebatalha("E parece que ele quer batalhar...");
         try { Thread.sleep(1000);
             System.out.println("\n");
-        }catch (InterruptedException ex) {}
+        }catch (InterruptedException ignored) {}
 
         startBattleAnimation();
         if(treinador.getFirstPokemon().getId() == 1){
@@ -143,10 +137,10 @@ public class Jogo {
     private void startBattleAnimation(){
         for (int i = 0; i < 240 ; i++){
             if(i%60==0){
-                System.out.println("");
+                System.out.print("\n");
             }
             System.out.print("#");
-            try { Thread.sleep(10);}catch (InterruptedException ex) {}
+            try { Thread.sleep(10);}catch (InterruptedException ignored) {}
         }
         System.out.println("\n\n");
     }
@@ -160,23 +154,23 @@ public class Jogo {
         return pokemons.get(0);
     }
 
-    private String dialogoComeçoJogo(){
+    private String dialogoComecoJogo(){
         util.Utils ajuda = new Utils();
         ajuda.balaoDebatalha("Olá, jovem! Meu nome é Professor Sysor,\n" +
                 "e seja bem vindo(a) ao mundo Pokémon!");
         try { Thread.sleep(3000);
             System.out.println("\n\n");
-        } catch (InterruptedException ex) {}
+        } catch (InterruptedException ignored) {}
         ajuda.balaoDebatalha("Sei que deve estar ansioso(a) para começar sua jornada,\n" +
                 "mas antes disso eu preciso que você me diga uma coisa...");
         try { Thread.sleep(3000);
-            System.out.println("");
-        } catch (InterruptedException ex) {}
+            System.out.print("\n");
+        } catch (InterruptedException ignored) {}
         String nomeJogador = ajuda.LerString("Qual o seu nome: ");
         System.out.println("\n\n");
         ajuda.balaoDebatalha("Olá "+nomeJogador+"!\nPara que possamos começar a sua aventura" +
                 "\nvocê precisa tomar uma decisão...");
-        System.out.println("");
+        System.out.print("\n");
         return nomeJogador;
     }
 
@@ -237,7 +231,7 @@ public class Jogo {
         balaoDebatalha("Seus pokémons foram curados... Volte sempre!");
         try { Thread.sleep(2500);
             System.out.println("\n\n\n\n");
-        } catch (InterruptedException ex) {}
+        } catch (InterruptedException ignored) {}
     }
 
     public void balaoDebatalha(String texto){
@@ -302,15 +296,15 @@ public class Jogo {
     }
 
     private void inicializaAtaques(){
-        Ataque bubble = new Ataque(02,"Bubble", 10, findTipoByName("Agua"));
+        Ataque bubble = new Ataque(2,"Bubble", 10, findTipoByName("Agua"));
         this.addNovoAtaque(bubble);
-        Ataque ember = new Ataque(01,"Ember", 10, findTipoByName("Fogo"));
+        Ataque ember = new Ataque(1,"Ember", 10, findTipoByName("Fogo"));
         this.addNovoAtaque(ember);
-        Ataque tackle = new Ataque(03,"Tackle", 5, findTipoByName("Normal"));
+        Ataque tackle = new Ataque(3,"Tackle", 5, findTipoByName("Normal"));
         this.addNovoAtaque(tackle);
-        Ataque peck = new Ataque(04, "Peck", 5, findTipoByName("Voador"));
+        Ataque peck = new Ataque(4, "Peck", 5, findTipoByName("Voador"));
         this.addNovoAtaque(peck);
-        Ataque razorBlade = new Ataque(05, "Razor Blade", 10, findTipoByName("Planta"));
+        Ataque razorBlade = new Ataque(5, "Razor Blade", 10, findTipoByName("Planta"));
         this.addNovoAtaque(razorBlade);
     }
 
@@ -444,21 +438,22 @@ public class Jogo {
         pokemons.add(fearow); // 022
         pokemons.add(ekans); // 023
         pokemons.add(arbok); // 024
+        pokemons.add(pikachu); // 025
 
 
 
-        pokemons.add(nidorina);//030
-        pokemons.add(nidoqueen);//031
-        pokemons.add(nidoranM);//032
-        pokemons.add(nidorino);//033
-        pokemons.add(nidoking);//034
+        pokemons.add(nidorina); // 030
+        pokemons.add(nidoqueen); // 031
+        pokemons.add(nidoranM); // 032
+        pokemons.add(nidorino); // 033
+        pokemons.add(nidoking); // 034
 
 
-        pokemons.add(moltres);//146
-        pokemons.add(dratini);//147
-        pokemons.add(dragonair);//148
-        pokemons.add(dragonite);//149
-        pokemons.add(mewtwo);//150
-        pokemons.add(mew);//151
+        pokemons.add(moltres); // 146
+        pokemons.add(dratini); // 147
+        pokemons.add(dragonair); // 148
+        pokemons.add(dragonite); // 149
+        pokemons.add(mewtwo); // 150
+        pokemons.add(mew); // 151
     }
 }
