@@ -29,7 +29,7 @@ public class Batalha {
     private void ataquePlayer(int indexAtaque){
         int danoCausado;
         if (this.pokemons[0].getVidaAtual() > 0) {
-            danoCausado = rollDano(this.pokemons[1].getAtaques().get(indexAtaque));
+            danoCausado = rollDano(this.pokemons[0].getAtaques().get(indexAtaque));
             this.pokemons[1].perdeHP(danoCausado);
             if(pokemons[1].getVidaAtual() < 0){ pokemons[1].setVidaAtual(0);}
             System.out.println("╔════════════════════════════════════════════════════════════╗");
@@ -109,10 +109,10 @@ public class Batalha {
         Random critico = new Random();
         if(critico.nextInt(20)+1 >= 18){
             ataque.setCritico(true);
-            return (dano.nextInt(ataque.getDano())+1)*2;
+            return (dano.nextInt(ataque.getDano()/2,ataque.getDano())+1)*2;
         }else{
             ataque.setCritico(false);
-            return dano.nextInt(ataque.getDano())+1;
+            return dano.nextInt(ataque.getDano()/2,ataque.getDano())+1;
         }
     }
 

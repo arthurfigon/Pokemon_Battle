@@ -58,7 +58,7 @@ public class Jogo {
                 mapaKanto.andaMapa(ajuda.LerString("Use W A S D para mover-se: "));
             }
             case 4 -> gameOn = false;
-            default -> pickMapBattle(1,1);
+            default -> pickMapBattle(mapaKanto.getLocalizacaoLinha(),mapaKanto.getLocalizacaoColuna());
         }
     }
 
@@ -82,11 +82,24 @@ public class Jogo {
 
     private void pickMapBattle(int mapX, int mapY){
         Pokemon combatente;
-        if((mapX == 10 || mapX == 9) && mapY == 3){
-            combatente = pickWildPokemon(findPokemonByName("Pidgey"),findPokemonByName("Rattata"));
-            Batalha batalhaUm = new Batalha(treinador.pickPokemon(), combatente);
-            batalhaUm.startBattle();
+        Random legendary = new Random();
+        if(legendary.nextInt(200) == 199){
+            combatente = pickWildPokemon(findPokemonByName("Moltres"), findPokemonByName("Zapdos"),
+                    findPokemonByName("Articuno"));
             curaPokemon(combatente);
+        }else {
+            if ((mapX == 10 || mapX == 9) && mapY == 3) {
+                combatente = pickWildPokemon(findPokemonByName("Pidgey"), findPokemonByName("Rattata"));
+                Batalha batalhaUm = new Batalha(treinador.pickPokemon(), combatente);
+                batalhaUm.startBattle();
+                curaPokemon(combatente);
+            }
+            if (mapX == 7 && mapY == 3) {
+                combatente = pickWildPokemon(findPokemonByName("Nidoran♂"), findPokemonByName("Nidoran♀"));
+                Batalha batalhaUm = new Batalha(treinador.pickPokemon(), combatente);
+                batalhaUm.startBattle();
+                curaPokemon(combatente);
+            }
         }
     }
 
@@ -364,30 +377,34 @@ public class Jogo {
                 findAtaqueByName("Tackle"),3,"Macho",false);
         Pokemon raticate = new Pokemon(20,"Raticate",200,200, findTipoByName("Normal"),
                 findAtaqueByName("Tackle"),20,"Femea",false);
-        Pokemon spearow = new Pokemon(21,"Spearow",60,60, findTipoByName("Normal"), findTipoByName("Voador"),
-                findAtaqueByName("Tackle"),6,"Macho",false);
-        Pokemon fearow = new Pokemon(22,"Fearow",210,210, findTipoByName("Normal"), findTipoByName("Voador"),
-                findAtaqueByName("Tackle"),21,"Macho",false);
+        Pokemon spearow = new Pokemon(21,"Spearow",60,60, findTipoByName("Normal"),
+                findTipoByName("Voador"), findAtaqueByName("Tackle"),6,"Macho",false);
+        Pokemon fearow = new Pokemon(22,"Fearow",210,210, findTipoByName("Normal"),
+                findTipoByName("Voador"), findAtaqueByName("Tackle"),21,"Macho",false);
         Pokemon ekans = new Pokemon(23,"Ekans",120,120, findTipoByName("Veneno"),
                 findAtaqueByName("Tackle"),12,"Femea",false);
         Pokemon arbok = new Pokemon(24,"Arbok",220,220, findTipoByName("Veneno"),
                 findAtaqueByName("Tackle"),22,"Macho",false);
         Pokemon pikachu = new Pokemon(25,"Pikachu",80,80, findTipoByName("Eletrico"),
                 findAtaqueByName("Tackle"),8,"Femea",false);
-
-
-
-
+        Pokemon raichu = new Pokemon(26,"Raichu",250,250, findTipoByName("Eletrico"),
+                findAtaqueByName("Tackle"),25,"Macho",false);
+        Pokemon sandshrew = new Pokemon(27,"Sandshrew",100,100, findTipoByName("Terra"),
+                findAtaqueByName("Tackle"),10,"Femea",false);
+        Pokemon sandslash = new Pokemon(28,"Sandslash",220,220, findTipoByName("Terra"),
+                findAtaqueByName("Tackle"),6,"Femea",false);
+        Pokemon nidoranF = new Pokemon(29,"Nidoran♀",60,60, findTipoByName("Veneno"),
+                findAtaqueByName("Tackle"),6,"Femea",false);
         Pokemon nidorina= new Pokemon(30,"Nidorina",160,160, findTipoByName("Veneno"),
                 findAtaqueByName("Tackle"),16,"Masculino",false);
         Pokemon nidoqueen= new Pokemon(31,"Nidoqueen",320,320, findTipoByName("Veneno"),
-                findTipoByName("Terra"), findAtaqueByName("Tackle"),32,"Feminino",false);
-        Pokemon nidoranM= new Pokemon(32,"Nidoran ♂", 60, 60, findTipoByName("Veneno"),
-                findAtaqueByName("Tackle"),6,"Masculino",false);
+                findTipoByName("Terra"), findAtaqueByName("Tackle"),32,"Femea",false);
+        Pokemon nidoranM= new Pokemon(32,"Nidoran♂", 60, 60, findTipoByName("Veneno"),
+                findAtaqueByName("Tackle"),6,"Macho",false);
         Pokemon nidorino= new Pokemon(33,"Nidorino",160 ,160 , findTipoByName("Veneno"),
-                findAtaqueByName("Tackle"),16,"Masculino",false);
+                findAtaqueByName("Tackle"),16,"Macho",false);
         Pokemon nidoking= new Pokemon(34,"Nidoking", 320, 320 , findTipoByName("Veneno"),
-                findTipoByName("Terra"),findAtaqueByName("Tackle"),32,"Masculino",false);
+                findTipoByName("Terra"),findAtaqueByName("Tackle"),32,"Macho",false);
 
 
 
