@@ -52,7 +52,7 @@ public class Jogo {
             case 2 -> pickMapBattle(mapaKanto.getLocalizacaoLinha(),mapaKanto.getLocalizacaoColuna());
             case 3 ->{
                 mapaKanto.showMapa();
-                mapaKanto.andaMapa(ajuda.LerString("Use W A S D para mover-se: "));
+                mapaKanto.andaMapa(ajuda.LerString("Informe w(↑) a(←) s(↓) d(→) para mover-se: "));
             }
             case 4 -> gameOn = false;
             default -> pickMapBattle(mapaKanto.getLocalizacaoLinha(),mapaKanto.getLocalizacaoColuna());
