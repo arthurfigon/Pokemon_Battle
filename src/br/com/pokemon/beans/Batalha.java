@@ -1,5 +1,7 @@
 package br.com.pokemon.beans;
 
+import util.Utils;
+
 import java.util.Random;
 
 public class Batalha {
@@ -12,14 +14,15 @@ public class Batalha {
     }
 
     public void startBattle() {
+        Utils ajuda = new Utils();
         System.out.println("\n\n\n");
-        balaoDebatalha("Seu pokemon: "+pokemons[0].getNome()+": "+pokemons[0].getVidaAtual()+
-                "/"+pokemons[0].getVidaTotal());
-        balaoDebatalha("Oponente: "+pokemons[1].getNome()+": "+pokemons[1].getVidaAtual()+
-                "/"+pokemons[1].getVidaTotal());
+        System.out.println(ajuda.balaoGrande("Seu pokemon: "+pokemons[0].getNome()+": "+pokemons[0].getVidaAtual()+
+                "/"+pokemons[0].getVidaTotal()));
+        System.out.println(ajuda.balaoGrande("Oponente: "+pokemons[1].getNome()+": "+pokemons[1].getVidaAtual()+
+                "/"+pokemons[1].getVidaTotal()));
         System.out.print("\n");
-        try { Thread.sleep(4500);
-            System.out.println("\n\n\n\n\n");
+        try { Thread.sleep(2500);
+            System.out.println("\n\n\n\n");
         } catch (InterruptedException ignored) {}
         while(this.pokemons[0].getVidaAtual() > 0 && this.pokemons[1].getVidaAtual() > 0) {
             mostrarBatalha();
@@ -39,7 +42,6 @@ public class Batalha {
             System.out.println("║ ╚═════════════════════════════════════════════════════╝");
             System.out.println("║");
             System.out.println("║");
-            System.out.println("║");
             System.out.println("║ "+pokemons[0].getNome()+": "+pokemons[0].getVidaAtual()+"/"+pokemons[0].getVidaTotal());
             System.out.println("║ ╔═════════════════════════════════════════════════════╗");
             if(danoCausado > this.pokemons[0].getAtaques().get(0).getDano()){
@@ -50,8 +52,8 @@ public class Batalha {
             }
             System.out.println("║ ╚═════════════════════════════════════════════════════╝");
             System.out.println("╚════════════════════════════════════════════════════════════╝");
-            try { Thread.sleep(4500);
-                System.out.println("\n\n\n\n\n");
+            try { Thread.sleep(3500);
+                System.out.println("\n\n\n\n");
             } catch (InterruptedException ignored) {}
         }
     }
@@ -74,14 +76,13 @@ public class Batalha {
             System.out.println("║ ╚═════════════════════════════════════════════════════╝");
             System.out.println("║");
             System.out.println("║");
-            System.out.println("║");
             System.out.println("║ "+pokemons[0].getNome()+": "+pokemons[0].getVidaAtual()+"/"+pokemons[0].getVidaTotal());
             System.out.println("║ ╔═════════════════════════════════════════════════════╗");
             System.out.println("║ ║ - "+danoCausado+" HP");
             System.out.println("║ ╚═════════════════════════════════════════════════════╝");
             System.out.println("╚════════════════════════════════════════════════════════════╝");
-            try { Thread.sleep(4500);
-                System.out.println("\n\n\n\n\n");
+            try { Thread.sleep(3500);
+                System.out.println("\n\n\n\n");
             } catch (InterruptedException ignored) {}
         }
     }

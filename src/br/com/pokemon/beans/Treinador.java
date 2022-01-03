@@ -107,8 +107,8 @@ public class Treinador {
 
     public static void printaPokemon(Pokemon pokemon){
         Utils ajuda = new Utils();
-        ajuda.balaoDebatalha(pokemon.getId()+" - "+pokemon.getNome()+ ": "
-                +pokemon.getVidaAtual()+"/"+pokemon.getVidaTotal());
+        System.out.println(ajuda.balaoPequeno(pokemon.getId()+" - "+pokemon.getNome()+ ": "
+                +pokemon.getVidaAtual()+"/"+pokemon.getVidaTotal()));
     }
 
     private boolean checkPokemonIsIn(int[] vetorDeIds, int id){

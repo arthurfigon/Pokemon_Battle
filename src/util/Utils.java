@@ -185,9 +185,74 @@ public class Utils {
     }
 
     public void balaoDebatalha(String texto){
-        System.out.println("════════════════════════════════════════════════════════");
+        System.out.println("╔════════════════════════════════════════════════════════════╗");
         System.out.println(""+texto);
-        System.out.println("════════════════════════════════════════════════════════");
+        System.out.println("╚════════════════════════════════════════════════════════════╝");
+    }
+
+    public String balaoGeral(String texto){ // 60 espaços internos
+        return "╔════════════════════════════════════════════════════════════╗\n"+
+                balaoTopico(texto)+ "\n╚════════════════════════════════════════════════════════════╝";
+    }
+
+    public String balaoGeral(String texto, String textoDois){ // 60 espaços internos
+        return "╔════════════════════════════════════════════════════════════╗\n"+
+                balaoTopico(texto)+"\n"+ balaoTopico(textoDois)+"\n╚════════════════════════════════════════════════════════════╝\n";
+    }
+
+    public String balaoGeral(String texto, String textoDois, String textoTres){ // 60 espaços internos
+        return "╔════════════════════════════════════════════════════════════╗\n"+
+                balaoTopico(texto)+"\n"+ balaoTopico(textoDois)+"\n"+ balaoTopico(textoTres)+
+                "\n╚════════════════════════════════════════════════════════════╝\n";
+    }
+
+    public String balaoGeral(String texto, String textoDois, String textoTres, String textoQuatro){ // 60 espaços internos
+        return "╔════════════════════════════════════════════════════════════╗\n"+
+                balaoTopico(texto)+"\n"+ balaoTopico(textoDois)+"\n"+ balaoTopico(textoTres)+"\n"+ balaoTopico(textoQuatro)+
+                "\n╚════════════════════════════════════════════════════════════╝\n";
+    }
+
+    public String balaoPequeno(String texto){ // 50 espaços internos
+//        System.out.println("╔══════════════════════════════════════════════════╗");
+//        System.out.println(calculaTexto(texto,50));
+//        System.out.println("╚══════════════════════════════════════════════════╝");
+        return "╔══════════════════════════════════════════════════╗\n"+calculaTexto(texto,50)
+                +"\n╚══════════════════════════════════════════════════╝";
+    }
+
+    public String balaoGrande(String texto){ // 50 espaços internos
+//        System.out.println("╔══════════════════════════════════════════════════╗");
+//        System.out.println(calculaTexto(texto,50));
+//        System.out.println("╚══════════════════════════════════════════════════╝");
+        return "╔════════════════════════════════════════════════════════════╗\n"+calculaTexto(texto,60)
+                +"\n╚════════════════════════════════════════════════════════════╝";
+    }
+
+    public String balaoTopico(String texto){ // 56 espaços internos
+//
+        return "║ ╔════════════════════════════════════════════════════════╗ ║\n║ "+calculaTexto(texto,56)
+                +" ║\n║ ╚════════════════════════════════════════════════════════╝ ║";
+    }
+
+    private String calculaTexto(String texto, int espaço){
+        int espaços;
+        String entrega = "║";
+        if(texto.length() < espaço-2){
+            espaços = (espaço-texto.length())/2;
+            for(int i = 0; i < espaços; i++){
+                entrega += " ";
+            }
+            entrega += texto;
+            for(int i = 0; i < espaços; i++){
+                entrega += " ";
+            }
+        }
+        if (texto.length() % 2 != 0){
+            entrega += " ║";
+        }else{
+            entrega += "║";
+        }
+        return entrega;
     }
 
 }

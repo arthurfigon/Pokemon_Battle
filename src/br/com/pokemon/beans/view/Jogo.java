@@ -46,10 +46,8 @@ public class Jogo {
 
     private void createWildMenu(){
         Utils ajuda = new Utils();
-        ajuda.balaoDebatalha("1 - Procurar pokemon selvagem");
-        ajuda.balaoDebatalha("2 - Usar Item(ainda será implementado)");
-        ajuda.balaoDebatalha("3 - Andar");
-        ajuda.balaoDebatalha("4 - Sair do Jogo");
+        System.out.println(ajuda.balaoGeral("1 - Procurar pokemon selvagem","2 - Usar Item(ainda será implementado)",
+                "3 - Andar","4 - Sair do Jogo"));
         switch (ajuda.LerInt("Digite a opção desejada: ")){
             case 1 -> pickMapBattle(mapaKanto.getLocalizacaoLinha(),mapaKanto.getLocalizacaoColuna());
             case 2 -> pickMapBattle(mapaKanto.getLocalizacaoLinha(),mapaKanto.getLocalizacaoColuna());
@@ -64,10 +62,8 @@ public class Jogo {
 
     private void createCityMenu(){
         Utils ajuda = new Utils();
-        ajuda.balaoDebatalha("1 - Ir ao centro Pokemon");
-        ajuda.balaoDebatalha("2 - Ir ao PokeMart(ainda será implementado)");
-        ajuda.balaoDebatalha("3 - Andar");
-        ajuda.balaoDebatalha("4 - Sair do Jogo");
+        System.out.println(ajuda.balaoGeral("1 - Ir ao centro Pokemon","2 - Ir ao PokeMart(ainda será implementado)",
+                "3 - Andar","4 - Sair do Jogo"));
         switch (ajuda.LerInt("Digite a opção desejada: ")){
             case 1 -> centroPokemon(treinador.getTime());
             case 2 -> centroPokemon(treinador.getTime());
@@ -122,14 +118,15 @@ public class Jogo {
     }
 
     private void firstBattle(){
+        Utils ajuda = new Utils();
         Pokemon bulbasaurInicial = getPokemonById(pokemons,1);
         Pokemon charmanderInicial = getPokemonById(pokemons,4);
         Pokemon squirtleInicial = getPokemonById(pokemons,7);
 
-        balaoDebatalha("Seu rival escolheu outro pokemon...");
-        try { Thread.sleep(2000);}catch (InterruptedException ignored) {}
-        balaoDebatalha("E parece que ele quer batalhar...");
-        try { Thread.sleep(1000);
+        System.out.println(ajuda.balaoPequeno("Seu rival escolheu outro pokemon..."));
+        try { Thread.sleep(1500);}catch (InterruptedException ignored) {}
+        System.out.println(ajuda.balaoPequeno("E parece que ele quer batalhar..."));
+        try { Thread.sleep(1500);
             System.out.println("\n");
         }catch (InterruptedException ignored) {}
 
@@ -169,21 +166,25 @@ public class Jogo {
 
     private String dialogoComecoJogo(){
         util.Utils ajuda = new Utils();
-        ajuda.balaoDebatalha("Olá, jovem! Meu nome é Professor Sysor,\n" +
-                "e seja bem vindo(a) ao mundo Pokémon!");
-        try { Thread.sleep(3000);
-            System.out.println("\n\n");
+        System.out.println(ajuda.balaoPequeno("Olá, jovem! Meu nome é Professor Sysor!"));
+        try { Thread.sleep(1800);
         } catch (InterruptedException ignored) {}
-        ajuda.balaoDebatalha("Sei que deve estar ansioso(a) para começar sua jornada,\n" +
-                "mas antes disso eu preciso que você me diga uma coisa...");
-        try { Thread.sleep(3000);
+        System.out.println(ajuda.balaoPequeno("Seja bem vindo(a) ao mundo Pokémon!"));
+        try { Thread.sleep(2000);
+        } catch (InterruptedException ignored) {}
+        System.out.println(ajuda.balaoPequeno("Você deve estar ansioso(a) para começar..."));
+        try { Thread.sleep(2200);
+        } catch (InterruptedException ignored) {}
+        System.out.println(ajuda.balaoPequeno("Mas antes me diga uma coisa..."));
+        try { Thread.sleep(2000);
             System.out.print("\n");
         } catch (InterruptedException ignored) {}
         String nomeJogador = ajuda.LerString("Qual o seu nome: ");
-        System.out.println("\n\n");
-        ajuda.balaoDebatalha("Olá "+nomeJogador+"!\nPara que possamos começar a sua aventura" +
-                "\nvocê precisa tomar uma decisão...");
-        System.out.print("\n");
+        System.out.println("\n");
+        System.out.println(ajuda.balaoGrande("Olá "+nomeJogador+"! Por favor escolha seu pokemon inicial:"));
+        try { Thread.sleep(1000);
+            System.out.print("\n");
+        } catch (InterruptedException ignored) {}
         return nomeJogador;
     }
 
@@ -226,6 +227,7 @@ public class Jogo {
         Treinador.printaPokemon(a);
         Treinador.printaPokemon(b);
         Treinador.printaPokemon(c);
+        System.out.print("\n");
         int resposta = ajuda.LerInt("Digite o id do pokemon que você deseja: ");
         if (resposta == c.getId()){
             return c;
@@ -238,11 +240,12 @@ public class Jogo {
     }
 
     private void centroPokemon(ArrayList<Pokemon> pokemons){
+        Utils ajuda = new Utils();
         for(Pokemon pokemon : pokemons){
             curaPokemon(pokemon);
         }
-        balaoDebatalha("Seus pokémons foram curados... Volte sempre!");
-        try { Thread.sleep(2500);
+        System.out.println(ajuda.balaoGrande("Seus pokémons foram curados... Volte sempre!"));
+        try { Thread.sleep(2300);
             System.out.println("\n\n\n\n");
         } catch (InterruptedException ignored) {}
     }
