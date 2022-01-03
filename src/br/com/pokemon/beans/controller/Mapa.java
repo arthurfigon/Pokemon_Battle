@@ -1,4 +1,4 @@
-package br.com.pokemon.beans;
+package br.com.pokemon.beans.controller;
 
 public class Mapa {
     // Matriz 15 linhas x 15 colunas

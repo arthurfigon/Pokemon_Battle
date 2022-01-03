@@ -1,6 +1,5 @@
-package br.com.pokemon.beans.view;
+package br.com.pokemon.beans.controller;
 
-import br.com.pokemon.beans.*;
 import util.Utils;
 
 import java.util.ArrayList;

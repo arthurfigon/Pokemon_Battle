@@ -1,4 +1,4 @@
-package br.com.pokemon.beans;
+package br.com.pokemon.beans.controller;
 
 import java.util.ArrayList;
 
