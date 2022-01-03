@@ -458,9 +458,10 @@ public class Jogo {
         pokemons.add(ekans); // 023
         pokemons.add(arbok); // 024
         pokemons.add(pikachu); // 025
-
-
-
+        pokemons.add(raichu); // 026
+        pokemons.add(sandshrew); // 027
+        pokemons.add(sandslash); // 028
+        pokemons.add(nidoranF); // 029
         pokemons.add(nidorina); // 030
         pokemons.add(nidoqueen); // 031
         pokemons.add(nidoranM); // 032
